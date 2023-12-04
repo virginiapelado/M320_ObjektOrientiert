@@ -6,7 +6,7 @@ public class ShoppingList {
     public void addItem(String item) {
         items.add(item);
     }
-    
+
     public void displayList() {
         System.out.println("Einkaufsliste:");
         for (String item : items) {

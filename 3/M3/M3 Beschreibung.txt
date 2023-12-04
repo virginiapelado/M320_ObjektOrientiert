@@ -1,0 +1,11 @@
+Die erstellte Java Anwendung ist eine einfache Einkaufslistenverwaltungsanwendung. Hier ist eine kurze Beschreibung der Funktionalitäten:
+
+Die Anwendung ermöglicht es dem Benutzer, Artikel zur Einkaufsliste hinzuzufügen. 
+Dabei wird die Menge jedes Artikels abgefragt. Die Eingaben erfolgen über die Konsole. 
+Die Anwendung verwendet das Konzept der Delegation, um die Benutzerschnittstelle von der Logik zu trennen.
+
+Die UserInterface klasse kümmert sich um die Eingabeaufforderungen und das Einlesen von Strings (für den Artikelnamen) und Ints  (für die Menge).
+Dabei werden mögliche Eingabefehler abgefangen und durch die Verwendung von Exception Klasse erkennt.
+
+Die Einkaufslistenverwaltung geschieht in der Klasse ShoppingList. 
+Diese Klasse speichert die Artikel und deren Mengen in einer Liste und stellt Methoden zum Hinzufügen von Artikeln sowie die ganze Einkaufsliste zu zeigen.
