@@ -1,5 +1,5 @@
 // RealStockMarket.java
-public class RealStockMarket implements StockEExchange {
+public class StockMarket implements StockExchange {
     @Override
     public double getPrice(Stock stock) {
         // Display a comment for the user

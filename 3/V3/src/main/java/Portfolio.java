@@ -1,34 +1,23 @@
-// Portfolio.java
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Portfolio {
-    private List<Stock> stocks = new ArrayList<>();
+    private List<Stock> stocks;
+    private StockExchange stockExchange;
 
-    public Portfolio(List<Stock> stocks) {
-        this.stocks.addAll(stocks);
+    public Portfolio(List<Stock> stocks, StockExchange stockExchange) {
+        this.stocks = stocks;
+        this.stockExchange = stockExchange;
     }
 
-    public double calculatePortfolioValue(StockEExchange stockExchange) {
-        double totalValue = 0;
+    public void calculatePortfolioValue() {
+        double totalValue = 0.0;
         for (Stock stock : stocks) {
-            totalValue += stock.getPrice(stockExchange);
+            double stockPrice = stockExchange.getPrice(stock);
+            double stockValue = stockPrice * stock.getQuantity();
+            totalValue += stockValue;
+            System.out.println("Stock: " + stock.getSymbol() + ", Quantity: " + stock.getQuantity() +
+                    ", Price: " + stockPrice + ", Value: " + stockValue);
         }
-        return totalValue;
-    }
-    public void createPortfolio() {
-        Stock microsoftZurich = new StockImp("MSFT", 90);
-        Stock microsoftNewYork = new StockImp("MSFT", 80);
-
-        List<Stock> stockList = new ArrayList<>();
-        stockList.add(microsoftZurich);
-        stockList.add(microsoftNewYork);
-
-        StockEExchange realStockMarket = new RealStockMarket();
-
-        Portfolio portfolio = new Portfolio(stockList);
-
-        double portfolioValue = portfolio.calculatePortfolioValue(realStockMarket);
-        System.out.println("Portfolio Value: $" + portfolioValue);
+        System.out.println("Total Portfolio Value: " + totalValue);
     }
 }

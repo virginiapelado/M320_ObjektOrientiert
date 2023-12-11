@@ -1,3 +1,3 @@
-public interface StockEExchange {
+public interface StockExchange {
     double getPrice(Stock stock);
 }

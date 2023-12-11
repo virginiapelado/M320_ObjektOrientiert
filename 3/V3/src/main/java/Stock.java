@@ -1,4 +1,17 @@
-public interface Stock {
-    String getSymbol();
-    double getPrice(StockEExchange stockExchange);
+public class Stock {
+    private String symbol;
+    private int quantity;
+
+    public Stock(String symbol, int quantity) {
+        this.symbol = symbol;
+        this.quantity = quantity;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
