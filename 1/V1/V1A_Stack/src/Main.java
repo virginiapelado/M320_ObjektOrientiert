@@ -5,8 +5,6 @@ public class Main {
         stack.push(5);
         stack.push(10);
         stack.pop();
-
-        System.out.println("First Element: " + stack.next());
-        System.out.println("Removed Element: " + stack.remove());
+t
     }
 }

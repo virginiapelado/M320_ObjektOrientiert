@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
+/**
+ * The Main class contains the main method and serves as the entry point for the football tournament application.
+ * It creates instances of the Team, Menu, Goalie, Attacker, and Defender classes and provides a user interface
+ * for displaying players, adding new players, and watching the game.
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
         Team team = new Team();
+
+        // Creating specific player instances (Goalie, Attacker, Defender) plus a default player in menu
         Menu menu = new Menu("Jude Bellingham", team);
         Goalie goalie = new Goalie("Yassine Bounou", 195.0);
         Attacker attacker = new Attacker("Lionel Messi");
@@ -27,7 +34,7 @@ public class Main {
             if (userRequest.equals("1")) {
                 team.showAllPlayers();
             } else if (userRequest.equals("2")) {
-                menu.play(); // Call the play method to add new players
+                menu.play();
             } else if (userRequest.equals("3")) {
                 team.play();
             } else {
