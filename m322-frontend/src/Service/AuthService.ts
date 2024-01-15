@@ -1,7 +1,7 @@
 import { defaultAxiosInstance } from "./Api"
 import { AxiosInstance } from "axios"
 
-const AuthService = (api: AxiosInstance = defaultAxiosInstance) => ({
+/*const AuthService = (api: AxiosInstance = defaultAxiosInstance) => ({
     login: async (email : string, password : string) => {
         const response = await api.post('login', {email, password})
         if(response && response.status === 200) {
@@ -12,3 +12,4 @@ const AuthService = (api: AxiosInstance = defaultAxiosInstance) => ({
 })
 
 export default AuthService
+*/
