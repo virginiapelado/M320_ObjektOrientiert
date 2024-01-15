@@ -37,7 +37,7 @@ VALUES (1, 'GET'),
 ON CONFLICT DO NOTHING;
 
 -- assign roles to users
-INSERT INTO movie_overview_roles(user_id, id_role)
+INSERT INTO movie_overview_roles(user_id, role_id)
 VALUES (1, 1),
        (2, 2)
 ON CONFLICT DO NOTHING;
