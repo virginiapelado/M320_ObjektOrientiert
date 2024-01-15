@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import { Movie } from "../../Service/Movie";
 
-export class MoviePlaceholder extends Component {
-  render() {
-    return <div>MoviePlaceholder</div>;
-  }
+export default function MoviePlaceholder(movie: Movie) {
+  return (
+    <div className="box">
+      <div className="rectangle" />
+    </div>
+  );
 }
-
-export default MoviePlaceholder;

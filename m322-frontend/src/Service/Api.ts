@@ -6,7 +6,7 @@ export const defaultAxiosInstance: AxiosInstance = axios.create({
     baseURL: BASE_URL,
 })
 
-defaultAxiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig<any>) => {
+/*defaultAxiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig<any>) => {
     let correctPath: boolean = config.url !== "login";
     if (localStorage.getItem("accessToken") !== "" && correctPath) {
         config.headers.Authorization = `Bearer ${localStorage.getItem("accessToken")}`;
@@ -17,4 +17,4 @@ defaultAxiosInstance.interceptors.request.use((config: InternalAxiosRequestConfi
     (error: AxiosError) => {
         return Promise.reject(error);
     }
-)
+)*/
