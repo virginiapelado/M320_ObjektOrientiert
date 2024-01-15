@@ -3,6 +3,8 @@ package com.example.M320Backend.domain.movies;
 import com.example.M320Backend.domain.movies.category.Category;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
@@ -14,18 +16,25 @@ public class Movies {
     @Column(name = "movie_id", nullable = false)
     private Long id;
 
-    @Column(name = "movie_title", nullable = false)
+    @Column(name = "movie_name", nullable = false)
     private String movieTitle;
 
-    @Column(name = "movie_desc")
+    private String thumbnail;
+
+    private String image;
+
+    @Column(name = "release_date")
+    private LocalDate date;
+
+    @Column(name = "description")
     private String movieDesc;
 
-    @Column(name = "movie_length")
+    @Column(name = "length")
     private int movieLength;
 
     private String director;
 
-    @Column(name = "movieRating")
+    @Column(name = "rating")
     private double movieRating;
 
     @Column(name = "movie_length")
@@ -42,6 +51,7 @@ public class Movies {
                     @JoinColumn(name = "category_id", referencedColumnName = "category_id")
             }
     )
+    @Column(name = "genre")
     private Set<Category> movieCategory;
 
 }
