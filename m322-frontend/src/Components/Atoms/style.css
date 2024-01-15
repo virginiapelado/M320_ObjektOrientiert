@@ -1,0 +1,15 @@
+.box {
+    height: 128px;
+    width: 227px;
+  }
+  
+  .box .rectangle {
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    height: 128px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 227px;
+  }
+  
