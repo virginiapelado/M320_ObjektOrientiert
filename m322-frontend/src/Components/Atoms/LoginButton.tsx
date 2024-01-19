@@ -1,11 +1,13 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export default function LoginButton() {
   const defaultColor = "#463F3A";
   const hoverColor = "#3d342e";
 
   return (
+    <Link to="/login" style={{ textDecoration: "none" }}>
     <Button
       sx={{
         background: defaultColor,
@@ -22,5 +24,6 @@ export default function LoginButton() {
     >
       Log In
     </Button>
+    </Link>
   );
 }

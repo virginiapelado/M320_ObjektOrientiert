@@ -23,4 +23,6 @@ body::before {
   background-size: cover;
 }
 
-/* Add styles for ExplorePage if needed */
+.page-not-found {
+  color: white;
+}
