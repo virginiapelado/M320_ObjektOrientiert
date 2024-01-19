@@ -8,18 +8,18 @@ export default function SearchBar() {
       id="outlined-basic"
       label=""
       variant="outlined"
+      size="small"
       style={{
         backgroundColor: "#BCB8B1",
         borderRadius: "8px",
         width: "371px",
-        flexShrink: 0,
       }}
       InputProps={{
         endAdornment: (
           <SearchIcon
             style={{
-              color: "#8A817C",
-              padding: "10px",
+              color: "#463F3A",
+              padding: "5px",
             }}
           />
         ),
