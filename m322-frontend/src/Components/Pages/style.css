@@ -1,7 +1,8 @@
+/* style.css */
 body {
   position: relative;
-  background-color: #1a1a1a;
   overflow: hidden;
+  background-color: #1a1a1a;
 }
 
 body::before {
@@ -16,8 +17,10 @@ body::before {
   z-index: -1;
 }
 
-body {
+.home-page-background {
   background-image: url("../../img/spider-man.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* Add styles for ExplorePage if needed */
