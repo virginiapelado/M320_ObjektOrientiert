@@ -6,7 +6,9 @@ export default function LoginPage() {
   return (
     <div>
     <Header />
-      Login Page
+      <div>
+        
+      </div>
     </div>
   );
 }
