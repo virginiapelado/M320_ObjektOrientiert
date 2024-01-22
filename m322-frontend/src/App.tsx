@@ -5,6 +5,7 @@ import PageNotFound from "./Components/Pages/PageNotFound";
 import ExplorePage from "./Components/Pages/ExplorePage";
 import HomePage from "./Components/Pages/HomePage";
 import LoginPage from "./Components/Pages/LoginPage";
+import QuizPage from "./Components/Pages/QuizPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="*" element={<PageNotFound />} />
       <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/quiz" element={<QuizPage />} />
     </Routes>
   );
 }
