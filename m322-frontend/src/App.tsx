@@ -7,6 +7,7 @@ import HomePage from "./Components/Pages/HomePage";
 import LoginPage from "./Components/Pages/LoginPage";
 import QuizPage from "./Components/Pages/QuizPage";
 import SignupPage from "./Components/Pages/SignupPage";
+import MovieDetailsPage from "./Components/Pages/MovieDetailsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="*" element={<PageNotFound />} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/quiz" element={<QuizPage />} />
+      <Route path="/details" element={<MovieDetailsPage />} />  {/* add /:id to details  */}
     </Routes>
   );
 }
