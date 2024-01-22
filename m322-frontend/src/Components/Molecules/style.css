@@ -21,3 +21,20 @@
   position: absolute !important;
   top: 0px !important;
 }
+
+img {
+  width: 25%;
+}
+
+.welcometxt {  
+  color: #D17B34;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: -35px;
+}
+
+h1 {
+  font-size: 280%;
+}
