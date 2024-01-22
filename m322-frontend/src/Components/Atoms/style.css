@@ -66,4 +66,9 @@
     width: 95%; /* Further adjust the width for even smaller screens */
     left: 2%;
   }
+.question {
+  color: antiquewhite;
+  position: absolute;
+}
+
 }
