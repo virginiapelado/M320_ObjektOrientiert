@@ -27,8 +27,8 @@ ON CONFLICT DO NOTHING;
 -- users
 INSERT INTO movie_overview_users("name", password, "email")
 VALUES
-    ('admin12345@mail.com', 'adm1n+23', 'admin12345@mail.com'), 
-    ('user76@mail.com', 'UserRU+1es', 'user76@mail.com')
+    ('admin12345@mail.com', '$2a$10$GKSix3ohTsUv4FKZX983keiT/XKzlyKkIZirktGRsXCuYdgqgmHAi', 'admin12345@mail.com'),  /* encoded password fpr 1234*/
+    ('user76@mail.com', '$2a$10$GKSix3ohTsUv4FKZX983keiT/XKzlyKkIZirktGRsXCuYdgqgmHAi', 'user76@mail.com') /* encoded password fpr 1234*/
 ON CONFLICT DO NOTHING;
 
 -- authorities

@@ -1,8 +1,10 @@
 package com.example.M320Backend.security;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@AllArgsConstructor
 public class Credentials {
     private String username;
     private String email;

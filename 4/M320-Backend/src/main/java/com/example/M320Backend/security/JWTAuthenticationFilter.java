@@ -39,8 +39,8 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
         byte[] keyBytes = Decoders.BASE64.decode(jwtProperties.getSecret());
 
         return Jwts.builder()
-                .setClaims(Map.of("sub", userDetailsImpl.user()
-                        .getId(), "authorities", userDetailsImpl.getAuthorities()))
+                .setClaims(Map.of("sub", String.valueOf(userDetailsImpl.user().getId()),
+                        "authorities", userDetailsImpl.getAuthorities()))
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getExpirationMillis()))
                 .setIssuer(jwtProperties.getIssuer()) //wer es ausgestellt hat
