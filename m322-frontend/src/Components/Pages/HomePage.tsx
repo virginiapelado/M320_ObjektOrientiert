@@ -1,7 +1,7 @@
-// HomePage.js
 import React, { useEffect } from "react";
 import Header from "../Organisms/Header";
 import "./style.css";
+import RectangleCard from "../Atoms/RectangleCard";
 
 const HomePage = () => {
   useEffect(() => {
@@ -14,6 +14,7 @@ const HomePage = () => {
   return (
     <div className="home-page">
       <Header />
+      <RectangleCard />
     </div>
   );
 };
