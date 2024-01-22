@@ -1,4 +1,4 @@
-package com.example.M320Backend.domain.user;
+package com.example.M320Backend.domain.administration.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,6 +21,11 @@ public class UserService implements UserDetailsService {
         return repository.findByUsername(name).map(UserDetailsImpl::new)
                 .orElseThrow(() -> new UsernameNotFoundException(name));
     }
+
+    public User loadUserById(Long id){
+        return repository.findById(id).orElseThrow();
+    }
+
 
     public record UserDetailsImpl(User user) implements UserDetails {
         @Override

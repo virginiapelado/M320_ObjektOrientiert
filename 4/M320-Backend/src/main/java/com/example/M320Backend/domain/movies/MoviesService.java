@@ -1,8 +1,8 @@
 package com.example.M320Backend.domain.movies;
 
-import com.example.M320Backend.domain.movies.category.Category;
-import com.example.M320Backend.domain.movies.exceptions.MovieOverviewExceptions;
-import com.example.M320Backend.domain.movies.reviews.Reviews;
+import com.example.M320Backend.config.generic.ExtendedService;
+import com.example.M320Backend.domain.category.Category;
+import com.example.M320Backend.domain.reviews.Reviews;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -11,18 +11,23 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 @Log4j2
-public class MoviesService {
-
-    @Autowired
+public class MoviesService extends ExtendedService<Movies> {
+    protected final String noIDFoundErrorMsg = "ID '%s' not found";
     private MoviesRepository repository;
 
-    public List<Movies> getMoviesWithFilter(String title, Set<Category> genre, Integer length, Set<Reviews> rating) {
-        log.info("Movies filtered by name, genre, length, and rating");
+    @Autowired
+    protected MoviesService(MoviesRepository repository) {
+        super(repository);
+        this.repository = repository;
+    }
 
+    public List<Movies> getMoviesWithFilter(String title, Set<Category> genre, Integer length, Set<Reviews> rating) {
         Movies movieFilter = new Movies();
         movieFilter.setMovieTitle(title);
         movieFilter.setMovieCategory(genre);
@@ -30,10 +35,10 @@ public class MoviesService {
         movieFilter.setMovieReviews(rating);
 
         /*
-        * ExampleMatcher and Example:
-        * They are used to dynamically build queries based on the provided filters
-        *
-        * currently they are being sorted in ascending order
+         * ExampleMatcher and Example:
+         * They are used to dynamically build queries based on the provided filters
+         *
+         * currently they are being sorted in ascending order
          */
         ExampleMatcher matcher = ExampleMatcher.matching()
                 .withIgnoreCase()
@@ -43,29 +48,46 @@ public class MoviesService {
 
         List<Movies> filteredMovies = repository.findAll(example, Sort.by(Sort.Direction.ASC, "name"));
 
+        log.info("Movies filtered by name, genre, length, and rating");
         return filteredMovies;
     }
 
-    public Movies getMovie(Integer id) throws MovieOverviewExceptions {
-        log.info(id + " movie found");
-        return repository.findById(id).orElseThrow(() -> new MovieOverviewExceptions("ID: "+ id + " of movie not found"));
-    }
+    @Override
+    public Movies findById(Long id) {
+        Optional<Movies> optional = repository.findById(id);
 
-    public Movies createMovie(Movies movies) {
-        log.info("movie created: " + movies);
-        return repository.save(movies);
-    }
-
-    public Movies updateMovie(Movies movies, Integer id) throws MovieOverviewExceptions  {
-        if(repository.existsById(id)) {
-            movies.setId(id);
-            return repository.save(movies);
+        if (optional.isPresent()) {
+            log.info(id + " movie found");
+            return optional.get();
+        } else {
+            throw new NoSuchElementException(String.format(noIDFoundErrorMsg, id));
         }
-        return repository.findById(id).orElseThrow(() -> new MovieOverviewExceptions("ID: "+ id + " of movie not found"));
     }
 
-    public void deleteMovie(Integer id) {
-        log.info(id + " of movie deleted");
-        repository.deleteById(id);
+    @Override
+    public Movies save(Movies entity) {
+        log.info("movie created: " + entity.getId());
+        return repository.save(entity);
+    }
+
+    @Override
+    public Movies updateById(Long id, Movies entity) {
+        if (repository.existsById(id)) {
+            entity.setId(id);
+            log.info(id + " movie found");
+            return repository.save(entity);
+        } else {
+            throw new NoSuchElementException(String.format(noIDFoundErrorMsg, id));
+        }
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        if (repository.existsById(id)) {
+            log.info(id + " of movie deleted");
+            repository.deleteById(id);
+        } else {
+            throw new NoSuchElementException(String.format(noIDFoundErrorMsg, id));
+        }
     }
 }

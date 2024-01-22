@@ -1,8 +1,8 @@
 package com.example.M320Backend.domain.movies;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.M320Backend.config.generic.ExtendedJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MoviesRepository extends JpaRepository<Movies, Integer> {
+public interface MoviesRepository extends ExtendedJpaRepository<Movies> {
 }
