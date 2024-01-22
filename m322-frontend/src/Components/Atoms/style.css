@@ -16,3 +16,8 @@
   width: 18vw;
   height: auto;
 }
+
+.question {
+  color: antiquewhite;
+  position: absolute;
+}

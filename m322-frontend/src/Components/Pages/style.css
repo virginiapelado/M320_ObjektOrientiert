@@ -2,6 +2,7 @@ body {
   position: relative;
   background-color: #1a1a1a;
   overflow: hidden;
+  color: aliceblue;
 }
 
 body::before {
