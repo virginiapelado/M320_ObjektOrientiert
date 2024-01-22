@@ -5,7 +5,7 @@ import QuizButton from "../Atoms/QuizButton";
 
 export default function Pages() {
   return (
-    <div style={{ display: "flex", gap: "80px" }}>
+    <div style={{ display: "flex", gap: "40px" }}>
       <HomeButton />
       <ExploreButton />
       <QuizButton />

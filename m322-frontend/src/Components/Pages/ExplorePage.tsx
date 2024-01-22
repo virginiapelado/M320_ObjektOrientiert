@@ -1,16 +1,20 @@
-import ExploreButton from "../Atoms/ExploreButton";
-import HomeButton from "../Atoms/HomeButton";
-import Logo from "../Atoms/Logo";
-import QuizButton from "../Atoms/QuizButton";
-import SearchBar from "../Atoms/SearchBar";
+// ExplorePage.js
+import React, { useEffect } from "react";
 import Filters from "../Organisms/Filters";
+import Header from "../Organisms/Header";
 import "./style.css";
 
-export default function ExplorePage() {
+const ExplorePage = () => {
+  useEffect(() => {
+    document.body.classList.remove("home-page-background");
+  }, []);
+
   return (
-    <div className="explore">
-      <Logo /> <HomeButton /> <ExploreButton /> <QuizButton /> <SearchBar />
+    <div>
+      <Header />
       <Filters />
     </div>
   );
-}
+};
+
+export default ExplorePage;

@@ -8,7 +8,7 @@ export default function ExploreButton() {
   const highlight = "#D17B34";
 
   return (
-    <Link to="/movie" style={{ textDecoration: "none" }}>
+    <Link to="/explore" style={{ textDecoration: "none" }}>
       <Button
         className={`movie-button ${isActive ? "active" : ""}`}
         style={{
@@ -28,7 +28,7 @@ export default function ExploreButton() {
               bottom: 0,
               left: 0,
               width: "100%",
-              height: "3px", // Adjust the height of the highlight
+              height: "3px",
               background: highlight,
               borderRadius: "3px 3px 0 0",
             }}

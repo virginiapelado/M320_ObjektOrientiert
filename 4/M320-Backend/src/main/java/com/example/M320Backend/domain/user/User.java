@@ -12,7 +12,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
     private Integer userId;
+    @Column(name="name")
     private String username;
+    private String email;
     private String password;
     @ManyToOne
     @JoinTable(
