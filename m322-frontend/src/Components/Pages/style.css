@@ -35,6 +35,33 @@ body::after {
   background-size: cover;
 }
 
-.page-not-found {
+.page-not-found{
   color: white;
+  font-size: 18px;
+}
+
+.txt {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+.split-layout {
+  display: flex;
+  height: 80vh;
+  margin: 2%;
+}
+
+.left-half,
+.right-half {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.left-half {
+  margin-bottom: 2%;
+}
+
+.right-half {
+  margin-bottom: 2%;
 }
