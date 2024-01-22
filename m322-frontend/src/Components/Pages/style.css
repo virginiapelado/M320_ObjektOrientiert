@@ -1,4 +1,3 @@
-/* style.css */
 body {
   position: relative;
   overflow: hidden;
@@ -12,14 +11,27 @@ body::before {
   left: 0;
   width: 100%;
   height: 30vh;
-  background: linear-gradient(to bottom, #000000, transparent);
+  opacity: 90%;
+  background: linear-gradient(to bottom, #000000, #000000, transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to top, #000000, transparent);
   pointer-events: none;
   z-index: -1;
 }
 
 .home-page-background {
-  background-image: url("../../img/spider-man.jpg");
-  background-repeat: no-repeat;
+  background-image: url("../../img/spider-man2.jpeg");
+  background-repeat: repeat;
   background-size: cover;
 }
 

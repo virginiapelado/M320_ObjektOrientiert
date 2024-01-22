@@ -30,16 +30,64 @@
   padding: 20px;
 }
 
-/* .question {
-  color: white;
-  text-align: center;
-  margin-top: 100px;
-  border-style: double;
-} */
-
 .quiz-introduction {
   color: white;
   text-align: center;
   margin-top: 50px;
 }
 
+.rectangle {
+  bottom: 5%;
+  left: 1%;
+  position: fixed;
+  width: 700px;
+  height: 450px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spiderman-logo {
+  width: 90%;
+  height: auto;
+  position: relative;
+  left: 6%;
+}
+
+.text {
+  color: #fff;
+  font-size: 18px;
+  margin: 6%;
+  margin-bottom: 2%;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+  .rectangle {
+    width: 90%; /* Adjust the width for smaller screens */
+    height: auto; /* Allow the height to adjust accordingly */
+    left: 5%;
+    right: auto;
+  }
+
+  .spiderman-logo {
+    width: 100%; /* Make the logo fill the container */
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .rectangle {
+    width: 95%; /* Further adjust the width for even smaller screens */
+    left: 2%;
+  }
+.question {
+  color: antiquewhite;
+  position: absolute;
+}
+
+}
