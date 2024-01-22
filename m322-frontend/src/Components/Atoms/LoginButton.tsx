@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function LoginButton() {
   const defaultColor = "#463F3A";
@@ -14,7 +15,7 @@ export default function LoginButton() {
         ":hover": {
           background: hoverColor,
         },
-        width: "168px",
+        width: "40px",
         height: "40px",
         flexShrink: 0,
         borderRadius: "15px",
@@ -22,7 +23,7 @@ export default function LoginButton() {
         fontSize: "18px",
       }}
     >
-      Log In
+      <PersonIcon />
     </Button>
     </Link>
   );

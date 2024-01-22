@@ -65,26 +65,26 @@
   margin-bottom: 2%;
 }
 
-/* Media Query for Responsive Design */
 @media screen and (max-width: 768px) {
   .rectangle {
-    width: 90%; /* Adjust the width for smaller screens */
-    height: auto; /* Allow the height to adjust accordingly */
+    width: 90%; 
+    height: auto; 
     left: 5%;
     right: auto;
   }
 
   .spiderman-logo {
-    width: 100%; /* Make the logo fill the container */
+    width: 100%;
     left: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .rectangle {
-    width: 95%; /* Further adjust the width for even smaller screens */
+    width: 95%;
     left: 2%;
   }
+  
 .question {
   color: antiquewhite;
   position: absolute;
