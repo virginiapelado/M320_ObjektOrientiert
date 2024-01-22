@@ -1,7 +1,6 @@
-// Login.tsx
-
 import React, { useState } from 'react';
 import './login.css';
+import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
 interface LoginProps {
@@ -47,8 +46,12 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
             className="text-input"
           />
         </div>
-
-        <Button variant="contained" type='submit' className='submit-button'>Log in</Button>
+        <Button variant="contained" type="submit" id="submit-button">
+          Log in
+        </Button>
+        <div className='signup'>
+        <p>Don't have an account?</p> <Link to="/signup" className='link'>Sign up</Link>
+        </div>
       </form>
     </div>
   );

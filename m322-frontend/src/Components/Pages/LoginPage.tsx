@@ -2,7 +2,7 @@ import Header from "../Organisms/Header";
 import LoginImage from "../Atoms/LoginImage";
 import WelcomeText from "../Molecules/WelcomeText";
 import "./style.css";
-import Login from "../Molecules/Login";
+import Login from "../Organisms/Login";
 
 export default function LoginPage() {
   return ( <div>

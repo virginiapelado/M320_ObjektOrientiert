@@ -14,7 +14,24 @@
   }
 
   h2 {
-    color: white;
+    color: #bcb8b1;
+  }
+  
+  p {
+    color: #bcb8b1;
+    font-size: 18px;
+    margin-right: 10px
+  }
+  
+  .link {
+    color: #d17b34;
+    font-size: 18px;
+  }
+
+  .signup {
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
   
   .text-input {
@@ -27,12 +44,12 @@
     font-size: 16px;
   }
   
-  .submit-button {
+  #submit-button {
     margin: 5%;
     width: 180px;
     height: 55px;
     flex-shrink: 0;
-    border-radius: 20px;
+    border-radius: 0px;
     background: #d17b34;
     color: #fff;
     font-size: 18px;
