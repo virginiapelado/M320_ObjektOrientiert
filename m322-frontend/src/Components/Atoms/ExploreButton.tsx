@@ -3,14 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function ExploreButton() {
   const location = useLocation();
-  const isActive = location.pathname === "/movie";
+  const isActive = location.pathname === "/explore";
   const textColor = "#FFFFFF";
   const highlight = "#D17B34";
 
   return (
     <Link to="/explore" style={{ textDecoration: "none" }}>
       <Button
-        className={`movie-button ${isActive ? "active" : ""}`}
+        className={`explore-button ${isActive ? "active" : ""}`}
         style={{
           color: textColor,
           position: "relative",
