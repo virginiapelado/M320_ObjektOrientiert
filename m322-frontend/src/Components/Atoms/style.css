@@ -25,13 +25,14 @@
 }
 
 .question-box {
-  border: 2px solid gray;
+  border: 2px solid grey;
   border-radius: 10px;
   padding: 20px;
 }
 
 .quiz-introduction {
   color: white;
+  /* color doesnt work*/
   text-align: center;
   margin-top: 50px;
 }
@@ -59,7 +60,7 @@
 }
 
 .text {
-  color: #fff;
+  color: #ffff;
   font-size: 18px;
   margin: 6%;
   margin-bottom: 2%;
@@ -86,8 +87,7 @@
   }
   
 .question {
-  color: antiquewhite;
+  color: white;
   position: absolute;
 }
-
 }

@@ -22,16 +22,40 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Spring Boot
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	developmentOnly "org.springframework.boot:spring-boot-devtools"
+	// spring actuator
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	}
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.springframework.security:spring-security-test"
+
+	//junit
+	testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
+
+	// JWT
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: 'latest.release'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: 'latest.release'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:latest.release'
+
+
+	// Swagger
+	implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+
+	//Validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation("org.springdoc:springdoc-openapi-ui:1.7.0") //swagger<
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Postgres
 	runtimeOnly 'org.postgresql:postgresql'
+
+	// Lombok
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
