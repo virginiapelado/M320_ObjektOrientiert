@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { Quiz } from "../Service/Quiz";
+import { Quiz } from "../../Service/Quiz";
 
 interface QuizPromptProps {
   prompt: Quiz;

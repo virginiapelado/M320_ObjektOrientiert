@@ -24,16 +24,17 @@ export default function MoviesCard() {
           <div>
             <ThumbnailCard
               id={item.id}
-              movie_name={item.movie_name}
+              movieTitle={item.movieTitle}
               thumbnail={item.thumbnail}
               image={item.image}
-              genre={item.genre}
-              rating={item.rating}
+              movieCategory={item.movieCategory}
+              movieReviews={item.movieReviews}
               release_date={item.release_date}
               director={item.director}
-              length={item.length}
-              description={item.description}
-            />
+              movieLength={item.movieLength}
+              movieDesc={item.movieDesc} 
+              trendingNow={item.trendingNow}            
+              />
           </div>
         );
       })}

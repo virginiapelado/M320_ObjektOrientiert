@@ -1,12 +1,16 @@
+import { Category } from "./Category"
+import { Reviews } from "./Reviews"
+
 export interface Movie {
     id : string,
-    movie_name : string,
+    movieTitle : string,
     thumbnail : string,
     image : string,
-    genre : string,
-    rating : number,
-    release_date : Date,
+    movieCategory : Category,
+    movieReviews : Reviews,
+    release_date : string,
     director : string,
-    length : number,
-    description : string
+    movieLength : number,
+    movieDesc : string
+    trendingNow : boolean
 }

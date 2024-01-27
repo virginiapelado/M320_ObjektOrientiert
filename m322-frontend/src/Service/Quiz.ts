@@ -5,5 +5,5 @@ export interface Quiz {
     answerB : string,
     answerC : string,
     answerD : string,
-    answerE : string,
+    answerE : string
 }
