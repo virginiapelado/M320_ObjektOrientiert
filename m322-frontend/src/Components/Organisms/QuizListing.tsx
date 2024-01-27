@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Quiz } from "../Service/Quiz";
 import QuizService from "../Service/QuizService";
 import QuizQuestion from "../Atoms/QuizQuestion";
 import QuizPrompts from "../Molecules/QuizPrompts";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 
 export default function QuizListing() {
   const [quizDetails, setQuizDetails] = useState<Quiz[]>([]);
-  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchQuizDetails = async () => {
@@ -23,43 +20,26 @@ export default function QuizListing() {
     fetchQuizDetails();
   }, []);
 
-  const handleAnswerChange = (index: number, selectedAnswer: string) => {
-    const updatedAnswers = [...selectedAnswers];
-    updatedAnswers[index] = selectedAnswer;
-    setSelectedAnswers(updatedAnswers);
-  };
-
-  const handleFormSubmit = () => {
-    // Handle form submission logic here using selectedAnswers
-    console.log("Selected Answers:", selectedAnswers);
+  const handleSelectAnswer = (questionId: string, answer: string) => {
+    // Implement the logic to store the selected answer for each question
+    console.log(`Question ID: ${questionId}, Selected Answer: ${answer}`);
   };
 
   return (
     <div>
-      {quizDetails?.map((quiz, index) => (
-        <div key={index}>
+      {quizDetails?.map((quiz) => (
+        <div key={quiz.id}>
           <QuizQuestion
             question={quiz.question}
             answerA={quiz.answerA}
             answerB={quiz.answerB}
             answerC={quiz.answerC}
             answerD={quiz.answerD}
-            answerE={quiz.answerE}
-          />{" "}
+            answerE={quiz.answerE} id={quiz.id} />
           <br />
-          <QuizPrompts
-            prompt={quiz}
-            onAnswerChange={(selectedAnswer) =>
-              handleAnswerChange(index, selectedAnswer)
-            }
-          />
+          <QuizPrompts prompt={quiz} onSelectAnswer={handleSelectAnswer} />
         </div>
       ))}
-      <div>
-        <button type="button" onClick={handleFormSubmit}>
-          Submit
-        </button>
-      </div>
     </div>
   );
 }

@@ -1,29 +1,18 @@
-import React, { ChangeEvent } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React, { ChangeEvent, useState } from "react";
 import { Quiz } from "../Service/Quiz";
 
-interface QuizPromptsProps {
+interface QuizPromptProps {
   prompt: Quiz;
-  onAnswerChange: (selectedAnswer: string) => void;
+  onSelectAnswer: (questionId: string, answer: string) => void;
 }
 
-export default function QuizPrompts({ prompt, onAnswerChange }: QuizPromptsProps) {
-  const formik = useFormik({
-    initialValues: {
-      selectedAnswer: "",
-    },
-    validationSchema: Yup.object({
-      selectedAnswer: Yup.string().required("Please select an answer"),
-    }),
-    onSubmit: () => {
-      // Submit button is in QuizListing
-    },
-  });
+export default function QuizPrompt({ prompt, onSelectAnswer }: QuizPromptProps) {
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-    formik.handleChange(event);
-    onAnswerChange(event.target.value);
+    const newValue = event.target.value;
+    setSelectedAnswer(newValue);
+    onSelectAnswer(prompt.id, newValue);
   };
 
   return (
@@ -31,50 +20,50 @@ export default function QuizPrompts({ prompt, onAnswerChange }: QuizPromptsProps
       <div id="A">
         <input
           type="radio"
-          name="quizRadio"
+          name={`quizRadio_${prompt.id}`}
           value={prompt.answerA}
           onChange={handleAnswerChange}
-          checked={formik.values.selectedAnswer === prompt.answerA}
+          checked={selectedAnswer === prompt.answerA}
         />
         {prompt.answerA}
       </div>
       <div id="B">
         <input
           type="radio"
-          name="quizRadio"
+          name={`quizRadio_${prompt.id}`}
           value={prompt.answerB}
           onChange={handleAnswerChange}
-          checked={formik.values.selectedAnswer === prompt.answerB}
+          checked={selectedAnswer === prompt.answerB}
         />
         {prompt.answerB}
       </div>
       <div id="C">
         <input
           type="radio"
-          name="quizRadio"
+          name={`quizRadio_${prompt.id}`}
           value={prompt.answerC}
           onChange={handleAnswerChange}
-          checked={formik.values.selectedAnswer === prompt.answerC}
+          checked={selectedAnswer === prompt.answerC}
         />
         {prompt.answerC}
       </div>
       <div id="D">
         <input
           type="radio"
-          name="quizRadio"
+          name={`quizRadio_${prompt.id}`}
           value={prompt.answerD}
           onChange={handleAnswerChange}
-          checked={formik.values.selectedAnswer === prompt.answerD}
+          checked={selectedAnswer === prompt.answerD}
         />
         {prompt.answerD}
       </div>
       <div id="E">
         <input
           type="radio"
-          name="quizRadio"
+          name={`quizRadio_${prompt.id}`}
           value={prompt.answerE}
           onChange={handleAnswerChange}
-          checked={formik.values.selectedAnswer === prompt.answerE}
+          checked={selectedAnswer === prompt.answerE}
         />
         {prompt.answerE}
       </div>
