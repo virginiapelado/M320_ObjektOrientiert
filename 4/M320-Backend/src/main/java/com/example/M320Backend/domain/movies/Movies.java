@@ -28,6 +28,7 @@ public class Movies extends ExtendedEntity {
     @Column(name = "description")
     private String movieDesc;
 
+    @Size(min = 1, max = 500)
     private String thumbnail;
 
     private String image;
