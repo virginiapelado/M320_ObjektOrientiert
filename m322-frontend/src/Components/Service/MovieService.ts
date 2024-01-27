@@ -11,16 +11,16 @@ const MovieService = (api: AxiosInstance = defaultAxiosInstance) => ({
         const data = await api.get(`explore/${id}`);
         return data['data'];
     },
-    postMovieById: async ( title:string, thumbnail:string, image:string, genre:string, rating:number, release_date:string, director:string, length:number, description : string ) => {
-        const data = await api.post('movie', {"movie_name": title, "thumbnail": thumbnail, "image": image, "genre": genre, "rating": rating, "release_date": release_date, "director": director, "length": length, "description": description});
+    postMovieById: async ( title:string, thumbnail:string, image:string, rating:number, release_date:Date, director:string, length:number, description:string, trending_now:boolean  ) => {
+        const data = await api.post('movie', {"movie_name": title, "thumbnail": thumbnail, "image": image, "rating": rating, "release_date": release_date, "director": director, "length": length, "description": description, "trending_now": trending_now});
         return data['data'];
     },
     deleteMovieById: async ( id:string ) => {
         const data = await api.delete(`movie/${id}`);
         return data['data'];
     },
-    putMovieById: async ( id:string, title:string, thumbnail:string, image:string, genre:string, rating:number, release_date:string, director:string, length:number, description : string ) => {
-        const data = await api.put(`explore/${id}`, {"movie_name": title, "thumbnail": thumbnail, "image": image, "genre": genre, "rating": rating, "release_date": release_date, "director": director, "length": length, "description": description});
+    putMovieById: async ( id:string, title:string, thumbnail:string, image:string, rating:number, release_date:Date, director:string, length:number, description : string, trending_now:boolean ) => {
+        const data = await api.put(`explore/${id}`, {"movie_name": title, "thumbnail": thumbnail, "image": image, "rating": rating, "release_date": release_date, "director": director, "length": length, "description": description});
         return data['data'];
     }
 })

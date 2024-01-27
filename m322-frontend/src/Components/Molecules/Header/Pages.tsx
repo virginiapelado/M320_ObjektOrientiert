@@ -1,7 +1,7 @@
 import React from "react";
-import HomeButton from "../Atoms/HomeButton";
-import ExploreButton from "../Atoms/ExploreButton";
-import QuizButton from "../Atoms/QuizButton";
+import HomeButton from "../../Atoms/Header/HomeButton";
+import ExploreButton from "../../Atoms/Header/ExploreButton";
+import QuizButton from "../../Atoms/Header/QuizButton";
 
 export default function Pages() {
   return (

@@ -7,20 +7,19 @@ import HomePage from "./Components/Pages/HomePage";
 import LoginPage from "./Components/Pages/LoginPage";
 import QuizPage from "./Components/Pages/QuizPage";
 import SignupPage from "./Components/Pages/SignupPage";
-import MovieDetailsPage from "./Components/Pages/MovieDetailsPage";
+import MovieDetails from "./Components/Pages/MovieDetails";
 
 function App() {
   return (
     <Routes>
       <Route path="/home" element={<HomePage />} />
       <Route path="/explore" element={<ExplorePage />} />
-      <Route path="/movie/:id" element={<PageNotFound />} />
+      <Route path="/movie/:id" element={<MovieDetails />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="*" element={<PageNotFound />} />
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/quiz" element={<QuizPage />} />
-      <Route path="/details" element={<MovieDetailsPage />} />  {/* add /:id to details  */}
     </Routes>
   );
 }

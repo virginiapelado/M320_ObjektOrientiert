@@ -1,7 +1,7 @@
 import React from "react";
 import Pages from "./Pages";
-import SearchBar from "../Atoms/SearchBar";
-import LoginButton from "../Atoms/LoginButton";
+import SearchBar from "../../Atoms/Header/SearchBar";
+import LoginButton from "../../Atoms/Header/LoginButton";
 
 export default function Navigation() {
   return (

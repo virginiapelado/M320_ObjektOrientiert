@@ -9,4 +9,5 @@ export interface Movie {
     director : string,
     length : number,
     description : string
+    trending_now : boolean
 }

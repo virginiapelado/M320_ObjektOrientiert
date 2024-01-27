@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../img/Logo.png";
-import "./style.css";
+import logo from "../../../img/Logo.png";
+import "../style.css";
 import { Link } from "react-router-dom";
 
 export default function Logo() {

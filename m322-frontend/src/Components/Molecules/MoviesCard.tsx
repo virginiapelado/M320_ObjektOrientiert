@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import ThumbnailCard from "../Atoms/ThumbnailCard";
 import { useNavigate } from "react-router-dom";
 import { Movie } from "../../Service/Movie";
-//import MovieService from "../../Service/MovieService";
+import MovieService from "../../Service/MovieService";
 
 export default function MoviesCard() {
   const navigate = useNavigate();
   const [movieDetails, setMovieDetails] = useState<Movie[]>([]);
 
-  /*useEffect(() => {
+  useEffect(() => {
     MovieService()
       .getMovie()
       .then((movieDetails: Movie[]) => {
@@ -16,7 +16,7 @@ export default function MoviesCard() {
       })
       .catch(() => navigate("/login", { replace: true }));
   });
-  */
+  
   return (
     <div>
       {movieDetails?.map((item) => {

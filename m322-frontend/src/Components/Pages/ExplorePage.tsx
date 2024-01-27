@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Filters from "../Organisms/Filters";
 import Header from "../Organisms/Header";
 import "./style.css";
+import MoviesCard from "../Molecules/MoviesCard";
 
 const ExplorePage = () => {
   useEffect(() => {
@@ -13,6 +14,7 @@ const ExplorePage = () => {
     <div>
       <Header />
       <Filters />
+      <MoviesCard />
     </div>
   );
 };
