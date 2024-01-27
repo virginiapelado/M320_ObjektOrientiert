@@ -1,11 +1,29 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { Quiz } from "../Service/Quiz";
 
-export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+interface QuizPromptsProps {
+  prompt: Quiz;
+  onAnswerChange: (selectedAnswer: string) => void;
+}
+
+export default function QuizPrompts({ prompt, onAnswerChange }: QuizPromptsProps) {
+  const formik = useFormik({
+    initialValues: {
+      selectedAnswer: "",
+    },
+    validationSchema: Yup.object({
+      selectedAnswer: Yup.string().required("Please select an answer"),
+    }),
+    onSubmit: () => {
+      // Submit button is in QuizListing
+    },
+  });
 
   const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedAnswer(event.target.value);
+    formik.handleChange(event);
+    onAnswerChange(event.target.value);
   };
 
   return (
@@ -16,7 +34,7 @@ export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
           name="quizRadio"
           value={prompt.answerA}
           onChange={handleAnswerChange}
-          checked={selectedAnswer === prompt.answerA}
+          checked={formik.values.selectedAnswer === prompt.answerA}
         />
         {prompt.answerA}
       </div>
@@ -26,7 +44,7 @@ export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
           name="quizRadio"
           value={prompt.answerB}
           onChange={handleAnswerChange}
-          checked={selectedAnswer === prompt.answerB}
+          checked={formik.values.selectedAnswer === prompt.answerB}
         />
         {prompt.answerB}
       </div>
@@ -36,7 +54,7 @@ export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
           name="quizRadio"
           value={prompt.answerC}
           onChange={handleAnswerChange}
-          checked={selectedAnswer === prompt.answerC}
+          checked={formik.values.selectedAnswer === prompt.answerC}
         />
         {prompt.answerC}
       </div>
@@ -46,7 +64,7 @@ export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
           name="quizRadio"
           value={prompt.answerD}
           onChange={handleAnswerChange}
-          checked={selectedAnswer === prompt.answerD}
+          checked={formik.values.selectedAnswer === prompt.answerD}
         />
         {prompt.answerD}
       </div>
@@ -56,7 +74,7 @@ export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
           name="quizRadio"
           value={prompt.answerE}
           onChange={handleAnswerChange}
-          checked={selectedAnswer === prompt.answerE}
+          checked={formik.values.selectedAnswer === prompt.answerE}
         />
         {prompt.answerE}
       </div>
