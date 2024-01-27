@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { Quiz } from "../Service/Quiz";
 
-export default function QuizPrompt(prompt : Quiz) {
+export default function QuizPrompt({ prompt }: { prompt: Quiz }) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -13,47 +13,52 @@ export default function QuizPrompt(prompt : Quiz) {
       <div id="A">
         <input
           type="radio"
+          name="quizRadio"
           value={prompt.answerA}
-          checked={selectedAnswer === "action"}
           onChange={handleAnswerChange}
+          checked={selectedAnswer === prompt.answerA}
         />
-        Action
+        {prompt.answerA}
       </div>
       <div id="B">
         <input
           type="radio"
+          name="quizRadio"
           value={prompt.answerB}
-          checked={selectedAnswer === "action"}
           onChange={handleAnswerChange}
+          checked={selectedAnswer === prompt.answerB}
         />
-        Action
+        {prompt.answerB}
       </div>
       <div id="C">
         <input
           type="radio"
+          name="quizRadio"
           value={prompt.answerC}
-          checked={selectedAnswer === "action"}
           onChange={handleAnswerChange}
+          checked={selectedAnswer === prompt.answerC}
         />
-        Action
+        {prompt.answerC}
       </div>
       <div id="D">
         <input
           type="radio"
+          name="quizRadio"
           value={prompt.answerD}
-          checked={selectedAnswer === "action"}
           onChange={handleAnswerChange}
+          checked={selectedAnswer === prompt.answerD}
         />
-        Action
+        {prompt.answerD}
       </div>
       <div id="E">
         <input
           type="radio"
+          name="quizRadio"
           value={prompt.answerE}
-          checked={selectedAnswer === "action"}
           onChange={handleAnswerChange}
+          checked={selectedAnswer === prompt.answerE}
         />
-        Action
+        {prompt.answerE}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import QuizQuestion from "../Molecules/QuizQuestion";
 import Header from "../Organisms/Header";
+import QuizListing from "../Organisms/QuizListing";
 
 export default function QuizPage() {
     return (
@@ -9,7 +9,7 @@ export default function QuizPage() {
             <p>Don't know what to watch? <br/>
            Take this short quiz and get a recommendation from us!</p>
         </div>
-        <QuizQuestion />
+        <QuizListing /> 
       </div>
     );
   }
