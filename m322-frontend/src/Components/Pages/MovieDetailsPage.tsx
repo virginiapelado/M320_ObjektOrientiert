@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Header from "../Organisms/Header";
 import MovieDetails from "../Organisms/MovieDetails";
 import "./style.css";
