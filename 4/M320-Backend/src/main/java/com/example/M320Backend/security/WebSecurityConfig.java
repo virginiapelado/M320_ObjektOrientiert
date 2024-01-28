@@ -1,6 +1,7 @@
 package com.example.M320Backend.security;
 
 import com.example.M320Backend.domain.administration.user.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-
+@RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
@@ -32,19 +33,13 @@ public class WebSecurityConfig {
     private final PasswordEncoder passwordEncoder;
     private final JwtProperties jwtProperties;
 
-    @Autowired
-    public WebSecurityConfig(UserService userService, PasswordEncoder passwordEncoder, JwtProperties jwtProperties) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtProperties = jwtProperties;
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(
-                        requests -> requests
-                                .requestMatchers(HttpMethod.POST, "/user/login", "/user/register", "/movies/quiz/**").permitAll()
-                                .requestMatchers(HttpMethod.GET, "/movies/**", "/reviews/**", "/movies/").permitAll()
+                        request -> request.requestMatchers(HttpMethod.POST, "/user/login", "/user/register", "/movies/quiz/**")
+                                .permitAll()
+                                .requestMatchers(HttpMethod.GET, "/movies/**", "/reviews/**", "/movies", "/movies/reviews/**")
+                                .permitAll()
                                 .requestMatchers(HttpMethod.GET, "/v3/api-docs", "/v3/api-docs/swagger-config", "/swagger-ui/*", "/myapi/*/*", "/myapi/*").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterAfter(new JWTAuthenticationFilter(new AntPathRequestMatcher("/user/login", "POST"),
