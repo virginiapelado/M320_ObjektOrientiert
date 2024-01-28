@@ -7,7 +7,7 @@ import HomePage from "./Components/Pages/HomePage";
 import LoginPage from "./Components/Pages/LoginPage";
 import QuizPage from "./Components/Pages/QuizPage";
 import SignupPage from "./Components/Pages/SignupPage";
-import MovieDetails from "./Components/Pages/MovieDetails";
+import MovieDetails from "./Components/Pages/MovieDetailsPage";
 
 function App() {
   return (
