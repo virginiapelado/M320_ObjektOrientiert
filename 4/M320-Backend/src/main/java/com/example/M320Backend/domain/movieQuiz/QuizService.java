@@ -60,13 +60,13 @@ public class QuizService extends ExtendedService<MovieQuiz> {
             case "A":
                 return getCategoryByName("Action");
             case "B":
-                return getCategoryByName("Romance");
+                return getCategoryByName("Psychological");
             case "C":
                 return getCategoryByName("Comedy");
             case "D":
-                return getCategoryByName("Horror");
+                return getCategoryByName("Animation");
             case "E":
-                return getCategoryByName("Fiction");
+                return getCategoryByName("Romance");
             default:
                 return getCategoryByName("Action");
             }

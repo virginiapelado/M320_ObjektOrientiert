@@ -26,7 +26,7 @@ public class ReviewsController {
      * This endpoint handles the GET-request to retrieve all reviews for a specific movie.
      * It expects the movie ID as a path variable and returns a list of reviews associated with that movie.
      */
-    @GetMapping({"/movie/reviews/{id}"})
+    @GetMapping({"/movies/reviews/{id}"})
     public ResponseEntity<List<Reviews>> getReviewsByMovie(@PathVariable("id") Long movieId) {
         List<Reviews> reviews = reviewsService.findReviewsByMovieId(movieId);
         return ResponseEntity.ok().body(reviews);

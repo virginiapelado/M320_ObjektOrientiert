@@ -5,15 +5,13 @@ import com.example.M320Backend.domain.category.Category;
 import com.example.M320Backend.domain.reviews.Reviews;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -27,29 +25,9 @@ public class MoviesService extends ExtendedService<Movies> {
         this.repository = repository;
     }
 
-    public List<Movies> getMoviesWithFilter(String title, Set<Category> genre, Integer length, Set<Reviews> rating) {
-        Movies movieFilter = new Movies();
-        movieFilter.setMovieTitle(title);
-        movieFilter.setMovieCategory(genre);
-        movieFilter.setMovieLength(length);
-        movieFilter.setMovieReviews(rating);
-
-        /*
-         * ExampleMatcher and Example:
-         * They are used to dynamically build queries based on the provided filters
-         *
-         * currently they are being sorted in ascending order
-         */
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnoreCase()
-                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-
-        Example<Movies> example = Example.of(movieFilter, matcher);
-
-        List<Movies> filteredMovies = repository.findAll(example, Sort.by(Sort.Direction.ASC, "name"));
-
-        log.info("Movies filtered by name, genre, length, and rating");
-        return filteredMovies;
+    public List<Movies> findAllMovies(){
+        log.info("Gets all movies");
+        return repository.findAll();
     }
 
     @Override

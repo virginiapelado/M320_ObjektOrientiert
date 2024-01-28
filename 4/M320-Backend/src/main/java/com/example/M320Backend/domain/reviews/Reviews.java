@@ -26,6 +26,7 @@ public class Reviews extends ExtendedEntity {
     @Size(min = 1, max = 750)
     private String description;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "movie_id")
     private Movies movie;
