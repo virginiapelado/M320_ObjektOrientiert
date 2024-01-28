@@ -45,10 +45,8 @@ public class Movies extends ExtendedEntity {
     private Boolean trendingNow;
 
     //one film can have many genres/ categories or reviews
-    @Transient
-    @OneToMany(fetch = FetchType.EAGER)
-    @Column(name = "rating")
-    private Set<Reviews> movieReviews;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Reviews> rating;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -59,7 +57,7 @@ public class Movies extends ExtendedEntity {
     private Set<Category> movieCategory;
 
 
-    public Movies(Long id, String movieTitle, String movieDesc, String thumbnail, String image, int movieLength, String director, LocalDate date, Boolean trendingNow, Set<Reviews> movieReviews, Set<Category> movieCategory) {
+    public Movies(Long id, String movieTitle, String movieDesc, String thumbnail, String image, int movieLength, String director, LocalDate date, Boolean trendingNow, Set<Reviews> rating, Set<Category> movieCategory) {
         super(id);
         this.movieTitle = movieTitle;
         this.movieDesc = movieDesc;
@@ -69,7 +67,7 @@ public class Movies extends ExtendedEntity {
         this.director = director;
         this.date = date;
         this.trendingNow = trendingNow;
-        this.movieReviews = movieReviews;
+        this.rating = rating;
         this.movieCategory = movieCategory;
     }
 }

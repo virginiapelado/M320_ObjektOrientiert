@@ -1,8 +1,6 @@
 package com.example.M320Backend.domain.movies;
 
 
-import com.example.M320Backend.domain.category.Category;
-import com.example.M320Backend.domain.reviews.Reviews;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
@@ -13,7 +11,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @Log4j2
@@ -29,8 +26,6 @@ public class MoviesController {
 
     /**
      * This endpoint handles the GET-request by retrieving all movies
-     * Though it also looks forward to title, genre, length and rating to see if they've been set
-     * and filters the site through request
      */
     @GetMapping
     @Operation(summary = "Fetches all Movies", description = "When successful it fetches all movies and returns a JSON-Code with the status code 200.")
