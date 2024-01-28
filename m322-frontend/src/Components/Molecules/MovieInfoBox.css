@@ -6,7 +6,7 @@
   }
   
   .first-half {
-    flex: 0 0 70%;
+    flex: 0 0 65%;
     padding: 20px 10px 10px 10px;
     border-right: 1px solid #ccc;
   }
@@ -14,8 +14,9 @@
   .second-half {
     display: flex;
     flex-direction: column;
-    flex: 0 0 30%;
+    flex: 0 0 35%;
     padding: 10px;
+    flex: auto;
   }
   
   h2 {
