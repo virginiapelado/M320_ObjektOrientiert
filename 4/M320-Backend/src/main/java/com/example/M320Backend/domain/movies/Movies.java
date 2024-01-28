@@ -24,7 +24,7 @@ public class Movies extends ExtendedEntity {
     private String movieTitle;
 
     @NotBlank
-    @Size(min = 1, max = 750)
+    @Size(min = 1, max = 1000)
     @Column(name = "description")
     private String movieDesc;
 

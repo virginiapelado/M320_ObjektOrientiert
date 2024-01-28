@@ -12,6 +12,10 @@ const ExplorePage = () => {
   return (
     <div style={{ height: "100vh", overflow: "scroll", overflowX: "hidden" }}>
       <Header />
+      <p className="explore-text">
+        Explore all the best movies here! Whether you're looking for a good
+        laugh, cry or even both, we have them here.
+      </p>
       <MovieLayout />
     </div>
   );
