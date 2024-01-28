@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Header from "../Organisms/Header";
 import "./style.css";
-import MoviesCard from "../Molecules/MoviesCard";
+import MovieLayout from "../Organisms/MovieLayout";
 
 const ExplorePage = () => {
   useEffect(() => {
@@ -10,9 +10,9 @@ const ExplorePage = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ height: "100vh", overflow: "scroll", overflowX: "hidden" }}>
       <Header />
-      <MoviesCard />
+      <MovieLayout />
     </div>
   );
 };
