@@ -68,11 +68,8 @@ body::after {
 
 .movie-details-page {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   background: url('../../img/spider-man2.jpeg') no-repeat center center fixed;
   background-size: cover;
-  height: 66.66vh;
   z-index: -2;
 }
 
