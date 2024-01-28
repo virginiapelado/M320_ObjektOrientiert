@@ -1,15 +1,13 @@
-import Header from "../Organisms/Header";
 import MovieInfoBox from "../Molecules/MovieInfoBox";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Movie } from "../../Service/Movie";
 import MovieService from "../../Service/MovieService";
+import "./MovieDetails.css";
 
-const MovieDetailsPage = () => {
+const MovieDetails = () => {
   const navigate = useNavigate();
-
   let { id } = useParams();
-
   const [movieDetails, setMovieDetails] = useState<Movie>();
 
   useEffect(() => {
@@ -21,11 +19,10 @@ const MovieDetailsPage = () => {
         })
         .catch(() => navigate("/explore", { replace: true }));
     }
-  });
+  }, [id, navigate]);
 
   return (
-    <div>
-      <Header />
+    <div className="movie-details-container">
       <MovieInfoBox
         id={movieDetails?.id!}
         movieTitle={movieDetails?.movieTitle!}
@@ -43,4 +40,4 @@ const MovieDetailsPage = () => {
   );
 };
 
-export default MovieDetailsPage;
+export default MovieDetails;

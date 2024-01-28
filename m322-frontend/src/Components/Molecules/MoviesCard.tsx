@@ -14,7 +14,7 @@ export default function MoviesCard() {
       .then((movieDetails: Movie[]) => {
         setMovieDetails(movieDetails);
       })
-      .catch(() => navigate("/login", { replace: true }));
+      .catch(() => console.log("failed to fetch movies"));
   });
   
   return (
