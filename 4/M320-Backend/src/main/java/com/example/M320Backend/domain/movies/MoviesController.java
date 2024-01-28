@@ -34,8 +34,8 @@ public class MoviesController {
      */
     @GetMapping
     @Operation(summary = "Fetches all Movies", description = "When successful it fetches all movies and returns a JSON-Code with the status code 200.")
-    public ResponseEntity<List<Movies>> allMovies(@RequestParam(value = "name", required = false) String title, Set<Category> genre, Integer length, Set<Reviews> rating) {
-        return ResponseEntity.ok().body(moviesService.getMoviesWithFilter(title, genre, length, rating));
+    public ResponseEntity<List<Movies>> allMovies() {
+        return ResponseEntity.ok().body(moviesService.findAllMovies());
     }
 
     /**

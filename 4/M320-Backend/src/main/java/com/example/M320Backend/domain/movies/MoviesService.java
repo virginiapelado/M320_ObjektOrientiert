@@ -27,29 +27,9 @@ public class MoviesService extends ExtendedService<Movies> {
         this.repository = repository;
     }
 
-    public List<Movies> getMoviesWithFilter(String title, Set<Category> genre, Integer length, Set<Reviews> rating) {
-        Movies movieFilter = new Movies();
-        movieFilter.setMovieTitle(title);
-        movieFilter.setMovieCategory(genre);
-        movieFilter.setMovieLength(length);
-        movieFilter.setMovieReviews(rating);
-
-        /*
-         * ExampleMatcher and Example:
-         * They are used to dynamically build queries based on the provided filters
-         *
-         * currently they are being sorted in ascending order
-         */
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnoreCase()
-                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-
-        Example<Movies> example = Example.of(movieFilter, matcher);
-
-        List<Movies> filteredMovies = repository.findAll(example, Sort.by(Sort.Direction.ASC, "name"));
-
-        log.info("Movies filtered by name, genre, length, and rating");
-        return filteredMovies;
+    public List<Movies> findAllMovies(){
+        log.info("Gets all movies");
+        return repository.findAll();
     }
 
     @Override
