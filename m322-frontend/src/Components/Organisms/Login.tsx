@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import AuthService from "../../Service/AuthService";
 
 interface LoginProps {
   onSubmit: (email: string, password: string) => void;
@@ -24,8 +25,16 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      navigate("/home");
+      const response = await AuthService().login(email, password);
+
+      if (response) {
+        console.log(response);
+        navigate("/home", { replace: true });
+      } else {
+        setError("Invalid email or password");
+      }
     } catch (error) {
+      console.error("Login error:", error);
       setError("Invalid email or password");
     }
   };
