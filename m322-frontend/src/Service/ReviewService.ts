@@ -9,14 +9,29 @@ const ReviewService = (api: AxiosInstance = defaultAxiosInstance) => ({
     return data["data"];
   },
 
+  getReviews: async () => {
+    const data = await api.get(`/reviews`);
+    return data["data"];
+  },
+
   getReviewById: async (id: string) => {
     const data = await api.get(`/reviews/${id}`);
     return data["data"];
   },
 
-  postReviewById: async (rating: number, reviewTitle: string, description: string, movie: Movie, userReviews: User
+  postReviewById: async (
+    rating: number,
+    reviewTitle: string,
+    description: string,
+    movie: Movie,
+    userReviews: User
   ) => {
-    const data = await api.post("/reviews", { "rating": rating, "reviewTitle": reviewTitle, "description": description, "movie": movie.id, "userReviews": userReviews.id,
+    const data = await api.post("/reviews", {
+      rating: rating,
+      reviewTitle: reviewTitle,
+      description: description,
+      movie: movie.id,
+      userReviews: userReviews.id,
     });
     return data["data"];
   },
