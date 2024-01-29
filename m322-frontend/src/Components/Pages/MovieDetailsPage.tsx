@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 import { useEffect, useState } from "react";
+>>>>>>> ac0432e58727649937c67c68aaa5f0d112f8bd0a
 import Header from "../Organisms/Header";
 import MovieDetails from "../Organisms/MovieDetails";
 import "./style.css";
