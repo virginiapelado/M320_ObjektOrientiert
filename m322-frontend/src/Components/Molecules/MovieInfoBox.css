@@ -1,46 +1,63 @@
+.MovieInfoBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
 .details-box {
-    display: flex;
-    width: 50%;
-    height: 75%;
-    background-color: #1a1a1a;
-  }
-  
-  .first-half {
-    flex: 0 0 65%;
-    padding: 20px 10px 10px 10px;
-    border-right: 1px solid #ccc;
-  }
-  
-  .second-half {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 35%;
-    padding: 10px;
-    flex: auto;
-  }
-  
-  h2 {
-    margin: 0;
-    padding: 0;
-  }
+  display: flex;
+  width: 60%;
+  height: 75%;
+  background-color: #1a1a1a;
+}
 
-  .movie-info {
-    display: flex;
-    margin-bottom: 10px;
-  }
+.first-half {
+  flex: 0 0 65%;
+  padding: 20px 10px 10px 10px;
+  border-right: 1px solid #ccc;
+}
 
-  h1 {
-    color: antiquewhite;
-  }
-  
-  .info-label {
-    margin-right: 10px;
-    color: #fff;
-  }
-  
-  .info-data {
-    color: antiquewhite;
-    margin: 0 1% 0 1%;
-    padding-top: 9px;
-  }
-  
+.second-half {
+  margin-top: 8vh;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 35%;
+  padding: 20px;
+  flex: auto;
+}
+
+.additional-info {
+  background-color: #1a1a1a;
+  color: #fff;
+  width: 60%;
+}
+
+.reviews {
+  margin: 2%;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.movie-info {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: antiquewhite;
+}
+
+.info-label {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.info-data {
+  color: antiquewhite;
+  margin: 0 1% 0 1%;
+  padding-top: 9px;
+}
