@@ -32,6 +32,11 @@ public class ReviewsController {
         return ResponseEntity.ok().body(reviews);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Reviews>> allReviews() {
+        return ResponseEntity.ok().body(reviewsService.findAllReviews());
+    }
+
     /**
      * This endpoint handles the GET-request to retrieve a single review by its ID.
      * It expects the review ID as a path variable and returns the corresponding review.

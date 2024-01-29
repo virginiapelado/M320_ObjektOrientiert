@@ -26,17 +26,10 @@ public class ReviewsService extends ExtendedService<Reviews> {
         return reviewsRepository.findByMovie_Id(movieId);
     }
 
-    @Override
-    public Reviews findById(Long id) {
-        Optional<Reviews> optional = reviewsRepository.findById(id);
-
-        if (optional.isPresent()) {
-            log.info(id + " review found");
-            return optional.get();
-        } else {
-            throw new NoSuchElementException(String.format(noIDFoundErrorMsg, id));
-        }
+    public List<Reviews> findAllReviews() {
+        return reviewsRepository.findAll();
     }
+
 
     @Override
     public Reviews save(Reviews entity) {

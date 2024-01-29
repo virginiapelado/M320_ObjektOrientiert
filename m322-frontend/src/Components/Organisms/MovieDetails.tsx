@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Movie } from "../../Service/Movie";
 import MovieService from "../../Service/MovieService";
 import "./MovieDetails.css";
+import ReviewsOverview from "./ReviewDetails";
 
 const MovieDetails = () => {
   const navigate = useNavigate();
