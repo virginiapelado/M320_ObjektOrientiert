@@ -3,11 +3,19 @@ import { Quiz } from "../../Service/Quiz";
 import QuizService from "../../Service/QuizService";
 import QuizPrompts from "../Molecules/QuizPrompts";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
 
-const initialValues = {}; // Initialize empty values for each question
+const initialValues = {
+  answerA: "",
+  answerB: "",
+  answerC: "",
+  answerD: "",
+  answerE: "",
+};
 
 export default function QuizListing() {
   const [quizDetails, setQuizDetails] = useState<Quiz[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchQuizDetails = async () => {
@@ -26,9 +34,19 @@ export default function QuizListing() {
     console.log(`Question ID: ${questionId}, Selected Answer: ${answer}`);
   };
 
-  const handleSubmit = (values: any) => {
-    // Implement the logic to submit and record the answers
-    console.log("Submitted answers:", values);
+  const handleSubmit = async (values: any) => {
+    try {
+      await QuizService().submitAnswer(values);
+
+      const recommendationResponse = await QuizService().getMovie();
+      const recommendedCategoryId =
+        recommendationResponse.recommendedCategory.id;
+
+      navigate(`/explore/${recommendedCategoryId}`);
+      console.log("Recommendation from the backend:", recommendationResponse);
+    } catch (error) {
+      console.error("Error submitting answers", error);
+    }
   };
 
   const validate = (values: any) => {
@@ -55,7 +73,9 @@ export default function QuizListing() {
     <div>
       <Formik
         initialValues={initialValues}
-        onSubmit={handleSubmit}
+        onSubmit={() => {
+          console.log("submit!");
+        }}
         validate={validate}
       >
         <Form>
@@ -73,7 +93,9 @@ export default function QuizListing() {
           ))}
           <ErrorMessage name="_global" component="div" className="error" />
           <br />
-          <button type="submit">Submit Answers</button>
+          <button onClick={handleSubmit} type="submit">
+            Submit Answers
+          </button>
         </Form>
       </Formik>
     </div>
