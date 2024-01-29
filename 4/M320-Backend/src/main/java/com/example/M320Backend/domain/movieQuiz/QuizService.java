@@ -58,7 +58,7 @@ public class QuizService extends ExtendedService<MovieQuiz> {
     private Category getCategoryByChosenAnswer(String chosenAnswer) {
         switch (chosenAnswer) {
             case "A":
-                return getCategoryByName("Action");
+                 return getCategoryByName("Action");
             case "B":
                 return getCategoryByName("Psychological");
             case "C":

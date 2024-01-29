@@ -1,12 +1,21 @@
+// SignupPage.tsx
 import React from "react";
 import Signup from "../Organisms/Signup";
 
-export default function SignupPage() {
+const SignupPage: React.FC = () => {
+  const handleSignup = (
+    name: string,
+    email: string,
+    password: string
+  ): void => {
+    console.log("Signup submitted:", { name, email, password });
+  };
+
   return (
     <div>
-      <Signup onSubmit={function (name: string, email: string, password: string): void {
-              throw new Error("Function not implemented.");
-          } } />
+      <Signup onSubmit={handleSignup} />
     </div>
   );
-}
+};
+
+export default SignupPage;

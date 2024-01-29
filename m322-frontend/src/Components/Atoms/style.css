@@ -1,15 +1,7 @@
-.image {
-  height: 128px;
-  width: 227px;
-}
-
 .image .thumbnail-card {
-  height: 128px;
-  left: 0;
-  object-fit: cover;
-  position: fixed;
-  top: 0;
-  width: 227px;
+  height: auto;
+  width: 275px;
+  flex-wrap: wrap;
 }
 
 .logo img {

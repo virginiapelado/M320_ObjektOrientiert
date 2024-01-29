@@ -68,12 +68,7 @@ body::after {
 
 .movie-details-page {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background: url('../../img/spider-man2.jpeg') no-repeat center center fixed;
   background-size: cover;
-  height: 66.66vh;
-  z-index: -2;
 }
 
 .movie-details-page::before {
@@ -91,4 +86,33 @@ body::after {
 
 .details-page-body {
   z-index: 1;
+}
+
+.explore-text{
+  font-size: 20px;
+  margin: 2% 11% 2% 11%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.quiz-text {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 24px;
+  margin: 2%;
+  color: white;
+}
+
+.quiz-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 35% 2% 35%;
+  border: 2px solid gray;
+  padding: 3%;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
 }
