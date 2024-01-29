@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ThumbnailCard from "../Atoms/ThumbnailCard";
+import { useNavigate } from "react-router-dom";
 import { Movie } from "../../Service/Movie";
 import MovieService from "../../Service/MovieService";
 import "./style.css";
 
 export default function MoviesCard() {
+  const navigate = useNavigate();
   const [movieDetails, setMovieDetails] = useState<Movie[]>([]);
 
   useEffect(() => {

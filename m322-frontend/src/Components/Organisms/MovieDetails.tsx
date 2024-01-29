@@ -22,7 +22,7 @@ const MovieDetails = () => {
   }, [id, navigate]);
 
   return (
-    <div className="movie-details-container" style={{ marginTop: "20%" }}>
+    <div className="movie-details-container">
       <MovieInfoBox
         id={movieDetails?.id!}
         movieTitle={movieDetails?.movieTitle!}
