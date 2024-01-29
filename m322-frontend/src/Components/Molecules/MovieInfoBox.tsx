@@ -1,4 +1,5 @@
 import { Movie } from "../../Service/Movie";
+import AddModal from "../Organisms/AddModal";
 import "./MovieInfoBox.css";
 
 export default function MovieInfoBox(movie: Movie) {
@@ -33,6 +34,7 @@ export default function MovieInfoBox(movie: Movie) {
       <div className="additional-info">
         <div className="reviews">
           <h1>Reviews</h1>
+          <AddModal />
         </div>
       </div>
     </div>

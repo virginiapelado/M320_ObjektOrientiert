@@ -6,7 +6,10 @@ interface QuizPromptProps {
   onSelectAnswer: (questionId: string, answer: string) => void;
 }
 
-export default function QuizPrompt({ prompt, onSelectAnswer }: QuizPromptProps) {
+export default function QuizPrompt({
+  prompt,
+  onSelectAnswer,
+}: QuizPromptProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +19,8 @@ export default function QuizPrompt({ prompt, onSelectAnswer }: QuizPromptProps) 
   };
 
   return (
-    <div>
+    <div style={{ color: "white" }}>
+      <h4>{prompt.question}</h4>
       <div id="A">
         <input
           type="radio"

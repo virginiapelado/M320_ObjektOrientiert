@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Quiz } from "../../Service/Quiz";
 import QuizService from "../../Service/QuizService";
-import QuizQuestion from "../Atoms/QuizQuestion";
 import QuizPrompts from "../Molecules/QuizPrompts";
 import { Formik, Form, Field } from "formik";
 
@@ -35,22 +34,10 @@ export default function QuizListing() {
 
   return (
     <div>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-      >
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form>
           {quizDetails?.map((quiz) => (
             <div key={quiz.id}>
-              <QuizQuestion
-                question={quiz.question}
-                answerA={quiz.answerA}
-                answerB={quiz.answerB}
-                answerC={quiz.answerC}
-                answerD={quiz.answerD}
-                answerE={quiz.answerE}
-                id={quiz.id}
-              />
               <QuizPrompts prompt={quiz} onSelectAnswer={handleSelectAnswer} />
               <Field type="hidden" name={`answers[${quiz.id}]`} />
               <br />
