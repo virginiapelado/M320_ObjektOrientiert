@@ -2,7 +2,6 @@ package com.example.M320Backend.security;
 
 import com.example.M320Backend.domain.administration.user.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -38,7 +37,7 @@ public class WebSecurityConfig {
         return http.authorizeHttpRequests(
                         request -> request.requestMatchers(HttpMethod.POST, "/user/login", "/user/register", "/movies/quiz/**")
                                 .permitAll()
-                                .requestMatchers(HttpMethod.GET, "/movies/**", "/reviews/**", "/movies", "/reviews/movies/**")
+                                .requestMatchers(HttpMethod.GET, "/movies/**", "/movies", "/reviews/movies/**")
                                 .permitAll()
                                 .requestMatchers(HttpMethod.GET, "/v3/api-docs", "/v3/api-docs/swagger-config", "/swagger-ui/*", "/myapi/*/*", "/myapi/*").permitAll()
                                 .anyRequest().authenticated())
