@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Movie } from "../../Service/Movie";
 import MovieService from "../../Service/MovieService";
 import "./MovieDetails.css";
-import ReviewsOverview from "./ReviewDetails";
 
 const MovieDetails = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ const MovieDetails = () => {
   }, [id, navigate]);
 
   return (
-    <div className="movie-details-container">
+    <div className="movie-details-container" style={{ marginTop: "20%" }}>
       <MovieInfoBox
         id={movieDetails?.id!}
         movieTitle={movieDetails?.movieTitle!}

@@ -1,5 +1,6 @@
 import { Movie } from "../../Service/Movie";
 import AddModal from "../Organisms/AddModal";
+import ReviewMapping from "../Organisms/ReviewMapping";
 import "./MovieInfoBox.css";
 
 export default function MovieInfoBox(movie: Movie) {
@@ -35,6 +36,7 @@ export default function MovieInfoBox(movie: Movie) {
         <div className="reviews">
           <h1>Reviews</h1>
           <AddModal />
+          <ReviewMapping />
         </div>
       </div>
     </div>
