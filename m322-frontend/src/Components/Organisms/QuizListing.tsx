@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Quiz } from "../../Service/Quiz";
 import QuizService from "../../Service/QuizService";
 import QuizPrompts from "../Molecules/QuizPrompts";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const initialValues = {}; // Initialize empty values for each question
 
@@ -23,7 +23,6 @@ export default function QuizListing() {
   }, []);
 
   const handleSelectAnswer = (questionId: string, answer: string) => {
-    // Implement the logic to store the selected answer for each question
     console.log(`Question ID: ${questionId}, Selected Answer: ${answer}`);
   };
 
@@ -32,17 +31,47 @@ export default function QuizListing() {
     console.log("Submitted answers:", values);
   };
 
+  const validate = (values: any) => {
+    const errors: any = {};
+
+    // Check if any question is unanswered
+    quizDetails.forEach((quiz) => {
+      const answer = values.answers && values.answers[quiz.id];
+      if (!answer) {
+        errors.answers = errors.answers || {};
+        errors.answers[quiz.id] = "Required";
+      }
+    });
+
+    // Set a general error message if any question is unanswered
+    if (Object.keys(errors.answers || {}).length > 0) {
+      errors._global = "Please answer all the questions!";
+    }
+
+    return errors;
+  };
+
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validate={validate}
+      >
         <Form>
           {quizDetails?.map((quiz) => (
             <div key={quiz.id}>
               <QuizPrompts prompt={quiz} onSelectAnswer={handleSelectAnswer} />
-              <Field type="hidden" name={`answers[${quiz.id}]`} />
+              <Field type="hidden" name={`answers.${quiz.id}`} />
+              <ErrorMessage
+                name={`answers.${quiz.id}`}
+                component="div"
+                className="error"
+              />
               <br />
             </div>
           ))}
+          <ErrorMessage name="_global" component="div" className="error" />
           <br />
           <button type="submit">Submit Answers</button>
         </Form>
