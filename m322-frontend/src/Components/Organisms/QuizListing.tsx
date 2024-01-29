@@ -46,6 +46,7 @@ export default function QuizListing() {
       console.log("Recommendation from the backend:", recommendationResponse);
     } catch (error) {
       console.error("Error submitting answers", error);
+      navigate(`/explore/4`);
     }
   };
 
