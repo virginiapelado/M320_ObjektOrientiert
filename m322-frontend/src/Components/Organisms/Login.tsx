@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import AuthService from "../../Service/AuthService";
+import { AuthService } from "../../Service/AuthService";
 
 interface LoginProps {
-  onSubmit: (email: string, password: string) => void;
+  onSubmit: (username: string, password: string) => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onSubmit }) => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    setUsername(e.target.value);
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,7 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await AuthService().login(email, password);
+      const response = await AuthService().login(username, password);
 
       if (response) {
         console.log(response);
@@ -46,7 +46,7 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
           <h2>Email:</h2>
           <input
             type="email"
-            value={email}
+            value={username}
             onChange={handleEmailChange}
             className="text-input"
           />
