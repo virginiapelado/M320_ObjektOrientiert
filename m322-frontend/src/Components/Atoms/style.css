@@ -1,6 +1,6 @@
 .image .thumbnail-card {
   height: auto;
-  width: 275px;
+  width: 225px;
   flex-wrap: wrap;
 }
 
@@ -40,8 +40,8 @@
 
 @media screen and (max-width: 768px) {
   .rectangle {
-    width: 90%; 
-    height: auto; 
+    width: 90%;
+    height: auto;
     left: 5%;
     right: auto;
   }
